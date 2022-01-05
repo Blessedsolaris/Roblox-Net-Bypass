@@ -1,0 +1,17 @@
+local RunService = game:GetService('RunService')
+local Players = game:GetService('Players')
+spawn(function()
+        for _, ServerPlayer in pairs(Players:GetPlayers()) do
+                if ServerPlayer.Name == Player.Name then
+                        RunService.Stepped:Connect(function()
+                                settings().Physics.AllowSleep = false
+                                setsimulationradius(math.huge*math.huge, math.huge*math.huge)
+                        end)
+                else
+                        RunService.Stepped:Connect(function()
+                                sethiddenproperty(ServerPlayer, 'MaximumSimulationRadius', 0)
+                                sethiddenproperty(ServerPlayer, 'SimulationRadius', 0)
+                        end)
+                end
+        end
+end)
