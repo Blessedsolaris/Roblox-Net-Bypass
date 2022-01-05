@@ -1,5 +1,6 @@
 local RunService = game:GetService('RunService')
 local Players = game:GetService('Players')
+local Player = Players.LocalPlayer
 spawn(function()
         for _, ServerPlayer in pairs(Players:GetPlayers()) do
                 if ServerPlayer.Name == Player.Name then
