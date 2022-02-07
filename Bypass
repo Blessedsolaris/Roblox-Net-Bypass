@@ -16,3 +16,9 @@ spawn(function()
                 end
         end
 end)
+Players.PlayerAdded:Connect(function(ServerPlayer)
+    RunService.Stepped:Connect(function()
+        sethiddenproperty(ServerPlayer, 'MaximumSimulationRadius', 0)
+        sethiddenproperty(ServerPlayer, 'SimulationRadius', 0)
+    end)
+end)
